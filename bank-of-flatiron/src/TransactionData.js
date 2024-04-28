@@ -14,3 +14,6 @@ return (
     </div>
   );
 }
+
+
+export default TransactionData;

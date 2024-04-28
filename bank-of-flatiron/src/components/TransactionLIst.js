@@ -1,4 +1,5 @@
 import React from 'react'
+import TransactionData from '../TransactionData';
 
 export default function TransactionLIst() {
   return (

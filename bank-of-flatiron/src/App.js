@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import TransactionData from './TransactionData';
+import SearchBar from '../src/components/SearchBar';
+import TransactionList from '../src/components/TransactionList';
+import AddTransactionForm from '../src/components/AddTransactionForm';
+
 import './App.css';
 
 function App() {
-  const handleTransactions = (data) => {
-    console.log(data);  
-  };
-
   const [transactions, setTransactions] = useState([
     // Initial transaction data
   ]);
@@ -33,15 +33,6 @@ function App() {
   );
 }
 
-function TransactionData({ onTransactions }) {
-  const transactions = [
-  ];
 
-  onTransactions(transactions);  // Call the prop function with data
-  return (
-    <div> 
-  </div>
-  )
-}
 
 export default App;
