@@ -1,7 +1,12 @@
 import React, {useState} from 'react';
+import TransactionData from './TransactionData';
 import './App.css';
 
 function App() {
+  const handleTransactions = (data) => {
+    console.log(data);  
+  };
+
   const [transactions, setTransactions] = useState([
     // Initial transaction data
   ]);
@@ -23,8 +28,20 @@ function App() {
       {SearchBar && <SearchBar onSearch={filteredTransactions} />}  {/* Render SearchBar conditionally */}
       <AddTransactionForm onAddTransaction={handleAddTransaction} />
       <TransactionList transactions={transactions} />
+      <TransactionData onTransactions={handleTransactions} />
     </div>
   );
+}
+
+function TransactionData({ onTransactions }) {
+  const transactions = [
+  ];
+
+  onTransactions(transactions);  // Call the prop function with data
+  return (
+    <div> 
+  </div>
+  )
 }
 
 export default App;
