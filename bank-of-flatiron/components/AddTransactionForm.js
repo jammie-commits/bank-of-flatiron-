@@ -12,7 +12,15 @@ function AddTransactionForm({ onAddTransaction }) {
     };
 
   return (
-    <div>AddTransactionForm</div>
+    <form onSubmit={handleSubmit}>
+    <label htmlFor="date">Date:</label>
+    <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+    <label htmlFor="description">Description:</label>
+    <input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+    <label htmlFor="amount">Amount:</label>
+    <input type="number" id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+    <button type="submit">Add Transaction</button>
+  </form>
   )
 }
 
