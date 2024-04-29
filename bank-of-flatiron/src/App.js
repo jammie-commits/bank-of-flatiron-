@@ -1,37 +1,108 @@
-import React, { useState } from 'react';
-import SearchBar from '../src/components/SearchBar';
-import TransactionList from '../src/components/TransactionList';
-import AddTransactionForm from '../src/components/AddTransactionForm';
+import React, { useState, useEffect } from "react";
+import Header from "./components/header/Header";
+import Search from "./components/search/SearchBar";
+import Table from "./components/table/List";
+import AddNewTransaction from "./components/addNewTransaction/Transaction";
 
-import './App.css';
+const App = () => {
+  // maintain all states
+  const [transactions, setTransactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [formData, setFormData] = useState({
+    date: "",
+    description: "",
+    category: "",
+    amount: "",
+  });
 
-function App() {
-  const [transactions, setTransactions] = useState([
-    // Initial transaction data
-  ]);
-  const [searchTerm, setSearchTerm] = useState(''); // State variable for search term
+  const [filter, setFilter] = useState("");
 
-  const handleAddTransaction = (newTransaction) => {
-    setTransactions([...transactions, newTransaction]);
+  const fetchTransactions = () => {
+    fetch("http://localhost:8000/transactions")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // update state
+        setTransactions(data);
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1);
+      })
+      .catch((err) => {
+        // fetch error
+        console.log(err.message);
+      });
   };
 
-  const handleSearch = (newSearchTerm) => {
-    setSearchTerm(newSearchTerm.toLowerCase()); // Update search term in lowercase
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
+
+  
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  // !handling input change
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    // updating formData using dynamic object properties
+    setFormData({ ...formData, [name]: value });
   };
 
-  const filteredTransactions = transactions.filter((transaction) =>
-    transaction.description.toLowerCase().includes(searchTerm)
-  );
+  
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    // POST transaction
+    fetch("http://localhost:8000/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setTransactions([...transactions, data]);
+      })
+      .catch();
+
+    
+    
+    setFormData({
+      date: "",
+      description: "",
+      category: "",
+      amount: "",
+    });
+  };
+
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
 
   return (
     <div className="App">
-      <h1>Transaction Tracker</h1>
-      <SearchBar onSearch={handleSearch} />  {/* Pass handleSearch function as prop */}
-      <AddTransactionForm onAddTransaction={handleAddTransaction} />
-      <TransactionList transactions={filteredTransactions} />
-      {/* Commented out for now: <TransactionData onTransactions={handleTransactions} /> */}
+      <Header />
+      <Search filter={filter} handleFilter={handleFilter} />
+      <AddNewTransaction
+        formData={formData}
+        handleChange={handleChange}
+        handleFormSubmit={handleFormSubmit}
+      />
+     
+      <Table transactions={transactions} filter={filter} />
     </div>
   );
-}
+};
 
 export default App;

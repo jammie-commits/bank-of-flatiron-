@@ -1,0 +1,74 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2024-04-21",
+      "description": "Britam Savings",
+      "category": "Savings",
+      "amount": 1000
+    },
+    {
+      "id": 2,
+      "date": "2024-04-22",
+      "description": "Safaricom Home Fibre",
+      "category": "Bills",
+      "amount": 3000
+    },
+    {
+      "id": 3,
+      "date": "2024-04-23",
+      "description": "Varsity ville Estated blessed court",
+      "category": "Bills",
+      "amount": 25000
+    },
+    {
+      "id": 4,
+      "date": "2024-04-24",
+      "description": "LC-Waikiki",
+      "category": "Fashion",
+      "amount": 1000
+    },
+    {
+      "id": 5,
+      "date": "2024-04-25",
+      "description": "Britam Money Market",
+      "category": "Savings",
+      "amount": 6000
+    },
+    {
+      "id": 6,
+      "date": "2024-04-26",
+      "description": "Best cooks Hotel",
+      "category": "Food",
+      "amount": 150
+    },
+    {
+      "id": 7,
+      "date": "2024-04-27",
+      "description": "Fanaka Real Estate",
+      "category": "Investment",
+      "amount": 3000
+    },
+    {
+      "id": 8,
+      "date": "2024-04-28",
+      "description": "Seven square car wash",
+      "category": "Transport",
+      "amount": 300
+    },
+    {
+      "id": 9,
+      "date": "2024-04-29",
+      "description": "Best cooks Hotel",
+      "category": "Food",
+      "amount": 200
+    },
+    {
+      "id": "626e",
+      "date": "2024-04-24",
+      "description": "uber payment",
+      "category": "Transport",
+      "amount": "250"
+    }
+  ]
+}
