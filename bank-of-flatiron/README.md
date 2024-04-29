@@ -1,19 +1,19 @@
-#PROJECT TITLE
-THE BANK OF FLATIRON
 
-###project By : James Mbugua
+# THE BANK OF FLATIRON
 
-###Date : 28.04.2024
+### By *James Mbugua
 
-##DESCRIPTION
+### Date, 28.04.2024
+
+## Description
 React application that displays a list of your recent bank transactions, among other features.
 
-##Imports:
+## Imports:
 useState and useEffect hooks from React for managing state and side effects.
 Individual components for Header, Search bar, Transaction table, and Add new transaction form.
 
-##Process
-###Top level component:
+## Process
+### Top level component:
 Manages several states using useState:
 transactions: An array to hold all transaction data.
 isLoading: A boolean to indicate if data is still fetching.
@@ -31,7 +31,7 @@ Search bar component allows filtering transactions.
 Add new transaction form allows users to enter details for a new transaction.
 Transaction table component displays the list of transactions based on current data and filter.
 
-##Technologies Used
+## Technologies Used
 Html
 Css
 React.js
