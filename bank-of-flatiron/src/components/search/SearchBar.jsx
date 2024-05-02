@@ -1,19 +1,11 @@
-import React from "react";
-import styles from "./search.module.css";
+function SearchBar({ onSearch }) {
+  const [searchTerm, setSearchTerm] = React.useState('');
 
-// directly destructure props
-const Search = ({ filter, handleFilter }) => {
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
-    <>
-      <input
-        value={filter}
-        onChange={handleFilter}
-        className={styles.search}
-        type="text"
-        placeholder="Search Your Recent Transactions (filter by category)"
-      />
-    </>
+    <input type="text" value={searchTerm} onChange={handleChange} placeholder="Search Transactions..." />
   );
-};
-
-export default Search;
+}
