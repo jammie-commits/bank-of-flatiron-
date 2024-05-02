@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import Search from "./components/search/SearchBar";
-import Table from "./components/table/List";
+import Table from "./components/table/Transactiontable";
 import AddNewTransaction from "./components/addNewTransaction/Transaction";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
   const [filter, setFilter] = useState("");
 
   const fetchTransactions = () => {
-    fetch("http://localhost:8000/transactions")
+    fetch("http://localhost:3000/transactions")
       .then((response) => {
         return response.json();
       })
