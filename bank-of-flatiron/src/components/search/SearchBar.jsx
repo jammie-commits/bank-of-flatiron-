@@ -1,3 +1,5 @@
+import React from "react";
+
 function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = React.useState('');
 
