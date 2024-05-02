@@ -29,7 +29,7 @@ function App() {
       <SearchBar onSearch={handleSearch} />  {/* Pass handleSearch function as prop */}
       <AddTransactionForm onAddTransaction={handleAddTransaction} />
       <TransactionList transactions={filteredTransactions} />
-      {/* Commented out for now: <TransactionData onTransactions={handleTransactions} /> */}
+      <TransactionData onTransactions={handleTransactions} /> 
     </div>
   );
 }
