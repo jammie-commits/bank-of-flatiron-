@@ -9,4 +9,5 @@
     align-items: center;
     background-color: var(--red);
     color: var(--white);
+    margin-top: 5px;
   }
