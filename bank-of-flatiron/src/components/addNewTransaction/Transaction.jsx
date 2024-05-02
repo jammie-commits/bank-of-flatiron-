@@ -1,65 +1,23 @@
-import React from "react";
-import styles from "./addNewTransaction.module.css";
+function AddTransactionForm({ onAddTransaction }) {
+  const [date, setDate] = React.useState('');
+  const [description, setDescription] = React.useState('');
+  const [amount, setAmount] = React.useState(0);
 
-const AddNewTransaction = ({ formData, handleChange, handleFormSubmit }) => {
-  // Destructure props for cleaner syntax
-  const { date, description, category, amount } = formData;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddTransaction({ date, description, amount });
+    // Clear form fields after submission (optional)
+  };
 
   return (
-    <form className={styles.form} onSubmit={handleFormSubmit}>
-      <fieldset className={styles.formControlsContainer}>
-        <legend>Transaction Details</legend>
-        <div className={styles.formControl}>
-          <label htmlFor="date">Date:</label>
-          <input
-            value={date}
-            onChange={handleChange}
-            type="date"
-            id="date"
-            name="date"
-          />
-        </div>
-
-        <div className={styles.formControl}>
-          <label htmlFor="description">Description:</label>
-          <input
-            value={description}
-            onChange={handleChange}
-            type="text"
-            id="description"
-            name="description"
-            placeholder="Enter a description"
-          />
-        </div>
-
-        <div className={styles.formControl}>
-          <label htmlFor="category">Category:</label>
-          <input
-            value={category}
-            onChange={handleChange}
-            type="text"
-            id="category"
-            name="category"
-            placeholder="Enter a category"
-          />
-        </div>
-
-        <div className={styles.formControl}>
-          <label htmlFor="amount">Amount:</label>
-          <input
-            value={amount}
-            onChange={handleChange}
-            type="number"
-            id="amount"
-            name="amount"
-            placeholder="Enter amount"
-          />
-        </div>
-      </fieldset>
-
-      <input type="submit" value="Add Transaction" />
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="date">Date:</label>
+      <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+      <label htmlFor="description">Description:</label>
+      <input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+      <label htmlFor="amount">Amount:</label>
+      <input type="number" id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+      <button type="submit">Add Transaction</button>
     </form>
   );
-};
-
-export default AddNewTransaction;
+}
