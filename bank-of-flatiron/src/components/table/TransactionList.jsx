@@ -8,6 +8,8 @@ function TransactionList() {
           <th>Date</th>
           <th>Description</th>
           <th>Amount</th>
+          <th>Id</th>
+          <th>Category</th>
         </tr>
       </thead>
       <tbody>
