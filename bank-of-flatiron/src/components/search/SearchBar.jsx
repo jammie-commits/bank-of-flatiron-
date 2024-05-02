@@ -9,3 +9,5 @@ function SearchBar({ onSearch }) {
     <input type="text" value={searchTerm} onChange={handleChange} placeholder="Search Transactions..." />
   );
 }
+
+export default SearchBar;

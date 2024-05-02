@@ -21,3 +21,5 @@ function AddTransactionForm({ onAddTransaction }) {
     </form>
   );
 }
+
+export default AddTransactionForm;

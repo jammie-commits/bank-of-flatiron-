@@ -20,3 +20,5 @@ function TransactionList() {
     </table>
   );
 }
+
+export default TransactionList;
