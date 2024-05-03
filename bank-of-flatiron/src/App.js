@@ -1,37 +1,76 @@
-import React, { useState } from 'react';
-import SearchBar from '../src/components/SearchBar';
-import TransactionList from '../src/components/TransactionList';
-import AddTransactionForm from '../src/components/AddTransactionForm';
+import React, { useState,useEffect } from 'react';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import TransactionList from './components/TransactionList';
+import AddTransactionForm from './components/AddTransactionForm';
 
 import './App.css';
 
-function App() {
-  const [transactions, setTransactions] = useState([
-    // Initial transaction data
-  ]);
-  const [searchTerm, setSearchTerm] = useState(''); // State variable for search term
+const App = () => {
+  const [transactions, setTransactions] = useState([]);
+  const [formData, setFormData] =useState({date: "",description: "", category: "", amount: "",});
+  const [filter, setFilter] = useState("");
 
-  const handleAddTransaction = (newTransaction) => {
-    setTransactions([...transactions, newTransaction]);
+  // fetch data from database
+  const fetchTransactionsData = () => {
+    fetch("db.json").then((data) => { setTransactions(data)});
+    useEffect(() => { fetchTransactionsData();
+     }, []);
+  }
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setFormData({...formData, [name]: value })
+  }
+   const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // post data
+    fetch("db.json.transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setTransactions([...transactions, data]);
+      })
+      .catch();
+      setFormData({
+        date: "",
+        description: "",
+        category: "",
+        amount: "",
+      });
+    };
+
+    const handleFilter = (e) => {
+      setFilter(e.target.value);
+    };
+
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar filter={filter} handleFilter={handleFilter} />
+        <AddTransactionForm
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+        {/* pass transactions as prop */}
+        <TransactionList transactions={transactions} filter={filter} />
+      </div>
+    );
   };
+  
+  export default App;
 
-  const handleSearch = (newSearchTerm) => {
-    setSearchTerm(newSearchTerm.toLowerCase()); // Update search term in lowercase
-  };
-
-  const filteredTransactions = transactions.filter((transaction) =>
-    transaction.description.toLowerCase().includes(searchTerm)
-  );
-
-  return (
-    <div className="App">
-      <h1>Transaction Tracker</h1>
-      <SearchBar onSearch={handleSearch} />  {/* Pass handleSearch function as prop */}
-      <AddTransactionForm onAddTransaction={handleAddTransaction} />
-      <TransactionList transactions={filteredTransactions} />
-      <TransactionData onTransactions={handleTransactions} /> 
-    </div>
-  );
-}
-
-export default App;
+ 

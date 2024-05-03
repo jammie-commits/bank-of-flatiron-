@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./header.module.css";
+import './App.css';
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <header class="header">
       <h1>The Royal Bank of Flatiron</h1>
     </header>
   );

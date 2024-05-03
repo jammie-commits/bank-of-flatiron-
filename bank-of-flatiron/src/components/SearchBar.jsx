@@ -1,14 +1,11 @@
 import React from "react";
 
-function SearchBar({ onSearch }) {
-  const [searchTerm, setSearchTerm] = React.useState('');
-
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+const SearchBar = ({ filter, handleFilter }) => {
 
   return (
-    <input type="text" value={searchTerm} onChange={handleChange} placeholder="Search Transactions..." />
+    <>
+    <input type="text" value={filter} onChange={handleFilter} placeholder="Search Transactions..." />
+    </>
   );
 }
 

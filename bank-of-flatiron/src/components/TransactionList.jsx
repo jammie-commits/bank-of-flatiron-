@@ -1,15 +1,22 @@
 import React from "react";
 
-function TransactionList() {
+const TransactionList = ({ transactions, filter}) => {
+
+  // filter records based on the category
+  if (filter) {
+    transactions = transactions.filter((transaction) => {
+      return transaction.category.toLowerCase() === filter.toLowerCase();
+    });
+  }
   return (
-    <table>
+    <table class="table">
       <thead>
         <tr>
-        <th>Id</th>
+        <th>ID</th>
           <th>Date</th>
           <th>Description</th>
-          <th>Amount</th>
           <th>Category</th>
+          <th>Amount</th>
         </tr>
       </thead>
       <tbody>
