@@ -1,6 +1,6 @@
 import React from "react";
 
-const TransactionList = ({ transactions, filter}) => {
+const TransactionList = ({ transactions, filter, id}) => {
 
   // filter records based on the category
   if (filter) {
@@ -12,7 +12,7 @@ const TransactionList = ({ transactions, filter}) => {
     <table class="table">
       <thead>
         <tr>
-        <th>ID</th>
+          <th>ID</th>
           <th>Date</th>
           <th>Description</th>
           <th>Category</th>
@@ -21,9 +21,11 @@ const TransactionList = ({ transactions, filter}) => {
       </thead>
       <tbody>
         {transactions.map((transaction) => (
-          <tr key={transaction.id}>
+          <tr key={id}>
+            <td>{transaction.id}</td>
             <td>{transaction.date}</td>
             <td>{transaction.description}</td>
+            <td>{transaction.category}</td>
             <td>{transaction.amount}</td>  
           </tr>
         ))}
