@@ -24,7 +24,7 @@ const TransactionList = ({ transactions, filter}) => {
           <tr key={transaction.id}>
             <td>{transaction.date}</td>
             <td>{transaction.description}</td>
-            <td>{transaction.amount.toFixed(2)}</td>  // Format amount to 2 decimal places
+            <td>{transaction.amount}</td>  
           </tr>
         ))}
       </tbody>

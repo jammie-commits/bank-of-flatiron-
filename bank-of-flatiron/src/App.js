@@ -12,11 +12,14 @@ const App = () => {
   const [filter, setFilter] = useState("");
 
   // fetch data from database
-  const fetchTransactionsData = () => {
-    fetch("db.json").then((data) => { setTransactions(data)});
-    useEffect(() => { fetchTransactionsData();
-     }, []);
-  }
+  useEffect(() => {
+    const fetchTransactionsData = async () => {
+      const response = await fetch("http://localhost:8000/transactions");
+      const data = await response.json();
+      setTransactions(data);
+    };
+    fetchTransactionsData();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -28,7 +31,7 @@ const App = () => {
     e.preventDefault();
 
     // post data
-    fetch("db.json.transactions", {
+    fetch("http://localhost:8000/transactions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
