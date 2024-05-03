@@ -18,7 +18,7 @@ const AddTransactionForm = ({ formData,handleChange,handleSubmit }) => {
 
       <div class="form-control">
       <label htmlFor="amount">Amount:</label>
-      <input type="number" id="amount" value={formData.amount} onChange={handleChange} placeholder="Amount"/>
+      <input type="number" id="amount" name="amount" value={formData.amount} onChange={handleChange} placeholder="Amount"/>
       </div>
 
       <div class="form-control">

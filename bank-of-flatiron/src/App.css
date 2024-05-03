@@ -80,8 +80,8 @@ input:focus {
 }
 
 input[type="submit"] {
-  background-color: var(--red);
-  color: rgb(84, 61, 198);
+  background-color: rgb(136, 132, 132);
+  color: rgb(21, 21, 22);
   font-size: 1rem;
   letter-spacing: 0.25rem;
   text-transform: uppercase;

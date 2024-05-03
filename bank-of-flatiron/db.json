@@ -71,81 +71,12 @@
       "amount": "250"
     },
     {
-      "id": "05b2",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "37a6",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "e701",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "197a",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "2161",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "5541",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "9464",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "5d84",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "3351",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "8d8c",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
-    },
-    {
-      "id": "a73f",
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": ""
+      "id": "bbd7",
+      "date": "2024-05-18",
+      "description": "Golden Spur barbershop",
+      "category": "Bills",
+      "amount": "500",
+      "": "5"
     }
   ]
 }
